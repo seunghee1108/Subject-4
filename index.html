@@ -75,15 +75,25 @@
       score.innerText = "SCORE:" + val + "점";
     }
 
-    function timer(){
-      palytime = setInterval(function(){
-        timeout = timeout - 1;
+    // function timer(){
+    //   playtime = setInterval(function(){
+    //     timeout = timeout - 1;
+    //     timeout.value = timeout;
+    //     if(timeout <= 0){
+    //       clearInterval(stop);
+    //     }
+    //   }, 3000);
+    // }
+
+    play.addEventListener('click', function(){
+      let playtime = setInterval(function(){
+        timeout = timeout-1;
         timeout.value = timeout;
         if(timeout <= 0){
           clearInterval(stop);
         }
-      }, 3000);
-    }
+      }, 3000)
+    })
     play.addEventListener('click', function(){
       let interval = setInterval(function(){
         const randomBox = document.createElement("div");
@@ -108,7 +118,7 @@
     counter();
     })
   })
-}, 3000)
+},1000)
   </script>
   </body>
   </html>
