@@ -7,8 +7,6 @@ const contentType = {
 http.createServer((request, response) => {
   if(request.method === 'GET' && request.url === '/') {
     response.writeHead(200, contentType);
-
-    
   }
 })
 
