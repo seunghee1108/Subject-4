@@ -1,5 +1,9 @@
 const http = require('http');
 const fs = require('http');
+const contentType = {
+  'content-Type' : 'text/html',
+  'charset' : 'utf-8',
+}
 
 
 
