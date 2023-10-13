@@ -1,3 +1,4 @@
+const { error } = require('console');
 const http = require('http');
 const fs = require('http');
 const contentType = {
@@ -7,13 +8,16 @@ const contentType = {
 http.createServer((request, response) => {
   if(request.method === 'GET' && request.url === '/') {
     response.writeHead(200, contentType);
+    fs.readFile('index.html', (err, data) => {
+      if(err) {
+        console.error('파일 호출 에러')
+      } else {
+        response.end(data);
+      }
+
+    })
   }
 })
-
-
-
-
-
 
 
 // http.createServer((req, res) => {
