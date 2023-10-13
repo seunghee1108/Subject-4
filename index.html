@@ -14,6 +14,7 @@
   #root{
     width: 100vw;
     height: 100vh;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,13 +24,17 @@
     height: 80vh;
     background-color: azure;
     position: relative;
-
   }
 
   #div{
     display: flex;
+    justify-content: center;
+    align-content: center;
     flex-direction: column;
-
+    flex-wrap: wrap;
+    position: relative;
+    margin: 5vw;
+    margin-left:10vw;
   }
   #time{
     width: 20vw;
@@ -56,6 +61,21 @@
       <div id = "play">play!</div>
     </div>
   </div>
+ 
+  <script>
+    const play = document.getElementById("play");
+    const score = document.getElementById("score");
+    const time = document.getElementById("time");
+    const box = document.getElementById("box");
+    console.dir(root);
+    let val = 0;
+    
+    function count() {
+      count++
+      
+    }
+
+  </script>
 </body>
 </html>
 
