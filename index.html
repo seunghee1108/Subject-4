@@ -25,7 +25,6 @@
     background-color: azure;
     position: relative;
   }
-
   #div{
     display: flex;
     justify-content: center;
@@ -34,7 +33,7 @@
     flex-wrap: wrap;
     position: relative;
     margin: 5vw;
-    margin-left:10vw;
+    margin-left: -10vw;
   }
   #time{
     width: 20vw;
@@ -56,9 +55,15 @@
   <div id = "root">
     <div id = "box"></div>
     <div>
-      <div id = "time">제한시간</div>
+      <p>제한시간</p>
+      <input type="text" name="time" id="">
+      <p>점수</p>
+      <input type="text" name="score" id="">
+      <p>play</p>
+      <input type="button" name="play" id=""> 
+      <!-- <div id = "time">제한시간</div>
       <div id = "score">점수</div>
-      <div id = "play">play!</div>
+      <div id = "play">play!</div> -->
     </div>
   </div>
  
