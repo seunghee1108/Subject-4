@@ -63,15 +63,16 @@
   <script>
     const play = document.getElementById("play");
     const score = document.getElementById("score");
-    const time = document.getElementById("time");
+    // const time = document.getElementById("time");
     const box = document.getElementById("box");
     console.dir(root);
     let val = 0;
-    let timeout = 10;
+    // let timeout = 10;
     
     // score
     function count(){
-      count++
+      val++;
+      console.log(val)
       score.innerText = "SCORE:" + val + "점";
     }
 
@@ -85,15 +86,15 @@
     //   }, 3000);
     // }
 
-    play.addEventListener('click', function(){
-      let playtime = setInterval(function(){
-        timeout = timeout-1;
-        timeout.value = timeout;
-        if(timeout <= 0){
-          clearInterval(stop);
-        }
-      }, 3000)
-    })
+    // play.addEventListener('click', function(){
+    //   let playtime = setInterval(function(){
+    //     timeout = timeout-1;
+    //     timeout.value = timeout;
+    //     if(timeout <= 0){
+    //       clearInterval(stop);
+    //     }
+    //   }, 1000)
+    // })
     play.addEventListener('click', function(){
       let interval = setInterval(function(){
         const randomBox = document.createElement("div");
@@ -114,7 +115,7 @@
 
     randomBox.addEventListener('click', function(){
     randomBox.remove()
-    randomBox.timer()
+    // randomBox.timer()
     counter();
     })
   })
