@@ -6,15 +6,54 @@
   <title>Document</title>
 </head>
 <style>
-  
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  #root{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #box{
+    width: 50vw;
+    height: 80vh;
+    background-color: azure;
+    position: relative;
+
+  }
+
+  #div{
+    display: flex;
+    flex-direction: column;
+
+  }
+  #time{
+    width: 20vw;
+    height: 5vh;
+    background-color: azure;
+  }
+  #score{
+    width: 20vw;
+    height: 5vh;
+    background-color: azure;
+  }
+  #play{
+    width: 20vw;
+    height: 5vh;
+    background-color: azure;
+  }
 </style>
 <body>
   <div id = "root">
-    <div></div>
+    <div id = "box"></div>
     <div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div id = "time">제한시간</div>
+      <div id = "score">점수</div>
+      <div id = "play">play!</div>
     </div>
   </div>
 </body>
