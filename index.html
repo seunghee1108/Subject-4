@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  #root{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #box{
+    width: 50vw;
+    height: 80vh;
+    background-color: azure;
+    position: relative;
+  }
+  div{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 1vw;
+    margin-left: 1vw;
+  }
+  #time{
+    width: 20vw;
+    height: 5vh;
+    background-color: azure;
+  }
+  #score{
+    width: 20vw;
+    height: 5vh;
+    background-color: azure;
+  }
+  #play{
+    width: 20vw;
+    height: 5vh;
+    background-color: azure;
+  }
+</style>
+<body>
+  <div id = "root">
+    <div id = "box"></div>
+    <div>
+      <div id = "time">제한시간</div>
+      <div id = "score">점수</div>
+      <div id = "play">play!</div>
+    </div>
+  </div>
+  <script>
+    const play = document.getElementById("play");
+    const score = document.getElementById("score");
+    // const time = document.getElementById("time");
+    const box = document.getElementById("box");
+    console.dir(root);
+    let val = 0;
+    // let timeout = 10;
+    
+    // score
+    function counter(){
+      val++;
+      console.log(val);
+      score.innerText = "SCORE:" + val + "점";
+    }
+
+    // function timer(){
+    //   playtime = setInterval(function(){
+    //     timeout = timeout - 1;
+    //     timeout.value = timeout;
+    //     if(timeout <= 0){
+    //       clearInterval(stop);
+    //     }
+    //   }, 3000);
+    // }
+
+    // play.addEventListener('click', function(){
+    //   let playtime = setInterval(function(){
+    //     timeout = timeout-1;
+    //     timeout.value = timeout;
+    //     if(timeout <= 0){
+    //       clearInterval(stop);
+    //     }
+    //   }, 1000)
+    // })
+    play.addEventListener('click', function(){
+      let interval = setInterval(function(){
+        const randomBox = document.createElement("div");
+        root.children[0].appendChild(randomBox);
+        randomBox.style.width = "2vw"
+        randomBox.style.height = "2vw"
+        randomBox.style.borderRadius = "50%"
+        randomBox.style.backgroundColor = "black"
+        randomBox.style.position = "absolute"
+
+    let x = Math.floor(Math.random() * 700)
+    let y = Math.floor(Math.random() * 700)
+    let xString = x.toString()
+    let ySting = y.toString()
+    randomBox.style.left = xString + "px"
+    randomBox.style.top = ySting + "px"
+
+    randomBox.addEventListener('click', function(){
+    randomBox.remove()
+    // randomBox.timer()
+    counter();
+    })
+  },300)
+});
+  </script>
+  </body>
+  </html>
+  
