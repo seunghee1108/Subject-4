@@ -14,7 +14,6 @@ http.createServer((request, response) => {
       } else {
         response.end(data);
       }
-
     });
   } else {
     response.writeHead(404, contentType);
