@@ -22,8 +22,10 @@
   #box{
     width: 50vw;
     height: 80vh;
-    background-color: azure;
+    background-color: bisque;
     position: relative;
+    border-radius: 10%;
+
   }
   div{
     display: flex;
@@ -34,21 +36,24 @@
     position: relative;
     margin: 1vw;
     margin-left: 1vw;
+    border-radius: 11%;
+    font-weight: bold;
+    font-size: 1.5rem;
   }
   #time{
     width: 20vw;
-    height: 5vh;
-    background-color: azure;
+    height: 5vw;
+    background-color:bisque;
   }
   #score{
     width: 20vw;
-    height: 5vh;
-    background-color: azure;
+    height: 5vw;
+    background-color:bisque;
   }
   #play{
     width: 20vw;
-    height: 5vh;
-    background-color: azure;
+    height: 5vw;
+    background-color:bisque;
   }
 </style>
 <body>
@@ -67,7 +72,7 @@
     const box = document.getElementById("box");
     console.dir(root);
     let val = 0;
-    // let timeout = 10;
+    let timeout = 10;
     
     // score
     function counter(){
@@ -76,15 +81,16 @@
       score.innerText = "SCORE:" + val + "점";
     }
 
-    // function timer(){
-    //   playtime = setInterval(function(){
-    //     timeout = timeout - 1;
-    //     timeout.value = timeout;
-    //     if(timeout <= 0){
-    //       clearInterval(stop);
-    //     }
-    //   }, 3000);
-    // }
+    function timer(){
+      playtime = setInterval(function(){
+        timeout = timeout - 1;
+        timeout.value = timeout;
+        if(timeout <= 0){
+          clearInterval(stop);
+          console.log(timer)
+        }
+      }, 3000);
+    }
 
     // play.addEventListener('click', function(){
     //   let playtime = setInterval(function(){
@@ -99,14 +105,16 @@
       let interval = setInterval(function(){
         const randomBox = document.createElement("div");
         root.children[0].appendChild(randomBox);
-        randomBox.style.width = "2vw"
-        randomBox.style.height = "2vw"
+        randomBox.style.width = "7vw"
+        randomBox.style.height = "7vw"
         randomBox.style.borderRadius = "50%"
-        randomBox.style.backgroundColor = "black"
+        randomBox.style.backgroundImage = "url(./image/hama.png)"
+        randomBox.style.backgroundSize = "cover"
         randomBox.style.position = "absolute"
+        
 
-    let x = Math.floor(Math.random() * 700)
-    let y = Math.floor(Math.random() * 700)
+    let x = Math.floor(Math.random() * 500)
+    let y = Math.floor(Math.random() * 500)
     let xString = x.toString()
     let ySting = y.toString()
     randomBox.style.left = xString + "px"
@@ -117,9 +125,8 @@
     // randomBox.timer()
     counter();
     })
-  },300)
+  }, 1000)
 });
   </script>
   </body>
   </html>
-  
