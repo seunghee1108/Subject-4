@@ -70,9 +70,9 @@
     // let timeout = 10;
     
     // score
-    function count(){
+    function counter(){
       val++;
-      console.log(val)
+      console.log(val);
       score.innerText = "SCORE:" + val + "점";
     }
 
@@ -106,7 +106,7 @@
         randomBox.style.position = "absolute"
 
 
-        
+
     let x = Math.floor(Math.random() * 700)
     let y = Math.floor(Math.random() * 700)
     let xString = x.toString()
@@ -119,8 +119,8 @@
     // randomBox.timer()
     counter();
     })
-  })
-},1000)
+  },300)
+});
   </script>
   </body>
   </html>
