@@ -3,17 +3,16 @@ const fs = require('http');
 const contentType = {
   'content-Type' : 'text/html',
   'charset' : 'utf-8',
-}
+};
+http.createServer((request, response) => {
+  if(request.method === 'GET' && request.url === '/') {
+    response.writeHead(200, contentType);
+
+    
+  }
+})
 
 
-
-
-
-// const http = require('http');
-// const fs = require('fs');
-// const contentType = {
-//     'Content-Type': 'text/html;charset=utf-8',
-// };
 // http.createServer((req, res) => {
 //     if (req.method === 'GET' && req.url === '/') {
 //         res.writeHead(200, contentType);
