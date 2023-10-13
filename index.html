@@ -60,7 +60,7 @@
     <div id = "box"></div>
     <div>
       <!-- <div id ="time"></div> -->
-      <input type="text" id="timer" value="10" >
+      <input type="text" id="time" value="10" >
       <div id = "score">점수</div>
       <div id = "play">play!</div>
     </div>
@@ -69,7 +69,7 @@
     const play = document.getElementById("play");
     const score = document.getElementById("score");
     const box = document.getElementById("box");
-    const timer = document.getElementById("timer")
+    const time = document.getElementById("time")
     console.dir(root);
     let val = 0;
     let timeout = 10;
@@ -81,19 +81,29 @@
       score.innerText = "SCORE:" + val + "점";
     }
     // timer
-    function timerr(){
-      playtime = setInterval(function(){
+    function timer(){
+      let stop = setInterval(function(){
         timeout = timeout-1 ;
-        timer.value = timeout;
-        if(timer.value <= 0){
+        time.value = timeout;
+        if(timeout <= 0){
           clearInterval(stop);
           console.log(timeout)
         }
       }, 1000);
     }
+    // function timerr(){
+    //   playtime = setInterval(function(){
+    //     timeout = timeout-1 ;
+    //     timer.value = timeout;
+    //     if(timer.value <= 0){
+    //       clearInterval(stop);
+    //       console.log(timeout)
+    //     }
+    //   }, 1000);
+    // }
     // clickevent
     play.addEventListener('click', function(){
-      timerr()
+      timer()
       let interval = setInterval(function(){
         const randomBox = document.createElement("div");
         root.children[0].appendChild(randomBox);
