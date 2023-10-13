@@ -16,8 +16,8 @@ http.createServer((request, response) => {
       }
 
     });
-  // } else {
-  //   response.writeHead(404, contentType);
-  //   response.end('<h1>요청 페이지를 찾을 수 없음</h1>');
-  // }
+  } else {
+    response.writeHead(404, contentType);
+    response.end('<h1>요청 페이지를 찾을 수 없음</h1>');
+  }
 }).listen(8080);
