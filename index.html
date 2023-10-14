@@ -24,7 +24,7 @@
     height: 80vh;
     background-color: #FDF5E6;
     position: relative;
-    border-radius: 10%;
+    /* border-radius: 10%; */
   }
   div{
     display: flex;
@@ -35,7 +35,7 @@
     position: relative;
     margin: 1vw;
     margin-left: 1vw;
-    border-radius: 11%;
+    /* border-radius: 11%; */
     font-weight: bold;
     font-size: 1.5rem;
   }
@@ -43,6 +43,11 @@
     width: 20vw;
     height: 5vw;
     background-color:#FDF5E6;
+    font-size: 1.5rem;
+    align-items: center;
+    margin-left: 1vw;
+    border: none;
+
   }
   #score{
     width: 20vw;
@@ -60,6 +65,7 @@
     <div id = "box"></div>
     <div>
       <!-- <div id ="time"></div> -->
+      <p style="justify-content: center;">제한시간</p>
       <input type="text" id="time" value="10" >
       <div id = "score">점수</div>
       <div id = "play">play!</div>
@@ -72,7 +78,8 @@
     const time = document.getElementById("time")
     console.dir(root);
     let val = 0;
-    let timeout = 10;
+    // let timeout = 10;
+    // var count = 10;
     
     // score
     function counter(){
@@ -81,21 +88,17 @@
       score.innerText = "SCORE:" + val + "점";
     }
     // timer
-    function timer(){
-      let stop = setInterval(function(){
-        timeout = timeout-1 ;
-        time.value = timeout;
-        if(timeout <= 0){
-          clearInterval(stop);
-          console.log(timeout)
-        }
-      }, 1000);
-    }
-    // function timerr(){
-    //   playtime = setInterval(function(){
+    // setInterval(function(){
+    //   count -= 1;
+    //   if( count >= 0){
+    //     document.querySelector('play')= count;
+    //   }
+    // },1000)
+    // function timer(){
+    //   let stop = setInterval(function(){
     //     timeout = timeout-1 ;
-    //     timer.value = timeout;
-    //     if(timer.value <= 0){
+    //     time.value = timeout;
+    //     if(timeout <= 0){
     //       clearInterval(stop);
     //       console.log(timeout)
     //     }
@@ -103,7 +106,7 @@
     // }
     // clickevent
     play.addEventListener('click', function(){
-      timer()
+      // timer()
       let interval = setInterval(function(){
         const randomBox = document.createElement("div");
         root.children[0].appendChild(randomBox);
@@ -114,16 +117,37 @@
         randomBox.style.backgroundSize = "cover"
         randomBox.style.position = "absolute"
       // random
-      let x = Math.floor(Math.random() * 500)
-      let y = Math.floor(Math.random() * 500)
+      let x = Math.floor(Math.random() * 600)
+      let y = Math.floor(Math.random() * 600)
       let xString = x.toString()
       let ySting = y.toString()
       randomBox.style.left = xString + "px"
       randomBox.style.top = ySting + "px"
 
+      
       randomBox.addEventListener('click', function(){
       randomBox.remove()
       counter();
+      // const timeoutId = setInterval(() =>{
+      //   console.log(count);
+      //   if(count++ === 10)clearInterval(timeoutId);
+      // },1000)
+      
+
+      // setTimeout(function(){
+      //  clearInterval(interval);
+      // }, 1000);
+
+
+
+      // if(timeout <= 0){
+      //   clearInterval(interval);
+      //   // if(score.value > 0 ){
+      //   //   root.style.width = "100vw"
+      //   //   root.style.height = "100vh"
+      //   //   root.style.backgroundColor = "skyblue"
+      //   // }
+      // }
       })
      }, 1000)
     });
