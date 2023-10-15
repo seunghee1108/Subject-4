@@ -78,8 +78,8 @@
     const time = document.getElementById("time")
     console.dir(root);
     let val = 0;
-    // let timeout = 10;
-    // var count = 10;
+    let count = 1;
+    let timeout = 10;
     
     // score
     function counter(){
@@ -87,26 +87,21 @@
       console.log(val);
       score.innerText = "SCORE:" + val + "점";
     }
+
     // timer
-    // setInterval(function(){
-    //   count -= 1;
-    //   if( count >= 0){
-    //     document.querySelector('play')= count;
-    //   }
-    // },1000)
-    // function timer(){
-    //   let stop = setInterval(function(){
-    //     timeout = timeout-1 ;
-    //     time.value = timeout;
-    //     if(timeout <= 0){
-    //       clearInterval(stop);
-    //       console.log(timeout)
-    //     }
-    //   }, 1000);
-    // }
+    function timer(){
+      let stop = setInterval(function(){
+        time.value = timeout;
+        timeout = timeout - 1;
+        if(timeout <= 0){
+          clearInterval(stop);
+        }
+      },1000);
+    }
+
     // clickevent
     play.addEventListener('click', function(){
-      // timer()
+      timer()
       let interval = setInterval(function(){
         const randomBox = document.createElement("div");
         root.children[0].appendChild(randomBox);
@@ -124,32 +119,15 @@
       randomBox.style.left = xString + "px"
       randomBox.style.top = ySting + "px"
 
-      
+      if(timeout <= 0){
+      clearInterval(interval);
+      }
+
       randomBox.addEventListener('click', function(){
       randomBox.remove()
       counter();
-      // const timeoutId = setInterval(() =>{
-      //   console.log(count);
-      //   if(count++ === 10)clearInterval(timeoutId);
-      // },1000)
-      
-
-      // setTimeout(function(){
-      //  clearInterval(interval);
-      // }, 1000);
-
-
-
-      // if(timeout <= 0){
-      //   clearInterval(interval);
-      //   // if(score.value > 0 ){
-      //   //   root.style.width = "100vw"
-      //   //   root.style.height = "100vh"
-      //   //   root.style.backgroundColor = "skyblue"
-      //   // }
-      // }
       })
-     }, 1000)
+     }, 3000)
     });
   </script>
   </body>
