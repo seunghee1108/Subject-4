@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-</head>
+  <!-- <link rel="stylesheet" href="image/hama.png"> -->
 <style>
   *{
     margin: 0;
@@ -59,6 +59,7 @@
     background-color:#FDF5E6;
   }
 </style>
+</head>
 <body>
   <div id = "root">
     <div id = "box"></div>
@@ -71,13 +72,14 @@
     </div>
   </div>
   <script>
+    const root = document.getElementById("root");
     const play = document.getElementById("play");
     const score = document.getElementById("score");
     const box = document.getElementById("box");
     const time = document.getElementById("time")
     console.dir(root);
     let val = 0;
-    let count = 1;
+    // let count = 1;
     let timeout = 10;
     
     // score
@@ -86,17 +88,6 @@
       console.log(val);
       score.innerText = "SCORE:" + val + "점";
     }
-    
-    function timer(){
-      let stop = setInterval(function(){
-        time.value = timeout
-        timeout = timeout - 1;
-        if(timeout <= 0){
-          clearInterval(stop);
-        } 
-      },1000)
-    }
-
 
     // timer
     function timer(){
@@ -118,8 +109,9 @@
         randomBox.style.width = "5vw"
         randomBox.style.height = "5vw"
         randomBox.style.borderRadius = "50%"
-        randomBox.style.backgroundImage = "url(./image/hama.png)"
-        randomBox.style.webkitBackgroundSize = "cover"
+        // randomBox.style.backgroundImage = `url('/image/${image[hama.png]}')`
+        randomBox.style.backgroundImage = "url('./image/hama.png')"
+        randomBox.style.backgroundSize = "cover"
         randomBox.style.position = "absolute"
       // random
       let x = Math.floor(Math.random() * 600)
