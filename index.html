@@ -55,7 +55,7 @@
   <div id = "root">
     <div id = "box"></div>
     <div>
-      <input type="text" id="time" value="10" >
+      <input type="text" id="time" value="10" />
       <!-- <div id = "time">제한시간</div> -->
       <div id = "score">점수</div>
       <div id = "play">play!</div>
@@ -80,14 +80,34 @@
     
     function timer(){
       let stop = setInterval(function(){
-        time.value = timeout;
+        time.value = timeout
         timeout = timeout - 1;
         if(timeout <= 0){
           clearInterval(stop);
-        }
-      },1000);
+        } 
+      },1000)
     }
 
+
+    // function timer(){
+    //   playtime = setInterval(function(){
+    //     timeout = timeout - 1;
+    //     timeout.value = timeout;
+    //     if(timeout <= 0){
+    //       clearInterval(stop);
+    //     }
+    //   }, 3000);
+    // }
+
+    // play.addEventListener('click', function(){
+    //   let playtime = setInterval(function(){
+    //     timeout = timeout-1;
+    //     timeout.value = timeout;
+    //     if(timeout <= 0){
+    //       clearInterval(stop);
+    //     }
+    //   }, 1000)
+    // })
     play.addEventListener('click', function(){
       timer();
       let interval = setInterval(function(){
@@ -104,14 +124,13 @@
     let y = Math.floor(Math.random() * 600)
     let xString = x.toString()
     let ySting = y.toString()
-
     randomBox.style.left = xString + "px"
     randomBox.style.top = ySting + "px"
 
     if(timeout <= 0){
-      clearInterval(interval);
+      clearInterval(interval){
+      }
     }
-
     randomBox.addEventListener('click', function(){
     randomBox.remove()
     // randomBox.timer()
