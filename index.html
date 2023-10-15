@@ -89,16 +89,17 @@
       console.log(val);
       score.innerText = "SCORE:" + val + "점";
     }
-    
+
     // timer
     function timer(){
       let stop = setInterval(function(){
         time.value = timeout;
+        console.log(timeout);
         timeout = timeout - 1;
         if(timeout <= 0){
           clearInterval(stop);
         }
-      },1000);
+      }, 1000);
     }
 
     // clickevent
@@ -111,8 +112,9 @@
         randomBox.style.height = "5vw"
         randomBox.style.borderRadius = "50%"
         // randomBox.style.backgroundImage = `url('/image/${image[hama.png]}')`
-        randomBox.style.backgroundImage = "url('./image/hama.png')"
-        randomBox.style.backgroundSize = "cover"
+        randomBox.style.backgroundColor = "black"
+        // randomBox.style.backgroundImage = "url('./image/hama.png')"
+        // randomBox.style.backgroundSize = "cover"
         randomBox.style.position = "absolute"
       // random
       let x = Math.floor(Math.random() * 600)
