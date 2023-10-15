@@ -55,7 +55,8 @@
   <div id = "root">
     <div id = "box"></div>
     <div>
-      <div id = "time">제한시간</div>
+      <input type="text" id="time" value="10" >
+      <!-- <div id = "time">제한시간</div> -->
       <div id = "score">점수</div>
       <div id = "play">play!</div>
     </div>
@@ -63,11 +64,12 @@
   <script>
     const play = document.getElementById("play");
     const score = document.getElementById("score");
-    // const time = document.getElementById("time");
+    const time = document.getElementById("time");
     const box = document.getElementById("box");
     console.dir(root);
     let val = 0;
-    // let timeout = 10;
+    let count = 1;
+    let timeout = 10;
     
     // score
     function counter(){
@@ -75,49 +77,47 @@
       console.log(val);
       score.innerText = "SCORE:" + val + "점";
     }
+    
+    function timer(){
+      let stop = setInterval(function(){
+        time.value = timeout;
+        timeout = timeout - 1;
+        if(timeout <= 0){
+          clearInterval(stop);
+        }
+      },1000);
+    }
 
-    // function timer(){
-    //   playtime = setInterval(function(){
-    //     timeout = timeout - 1;
-    //     timeout.value = timeout;
-    //     if(timeout <= 0){
-    //       clearInterval(stop);
-    //     }
-    //   }, 3000);
-    // }
-
-    // play.addEventListener('click', function(){
-    //   let playtime = setInterval(function(){
-    //     timeout = timeout-1;
-    //     timeout.value = timeout;
-    //     if(timeout <= 0){
-    //       clearInterval(stop);
-    //     }
-    //   }, 1000)
-    // })
     play.addEventListener('click', function(){
+      timer();
       let interval = setInterval(function(){
         const randomBox = document.createElement("div");
         root.children[0].appendChild(randomBox);
-        randomBox.style.width = "2vw"
-        randomBox.style.height = "2vw"
+        randomBox.style.width = "5vw"
+        randomBox.style.height = "5vw"
         randomBox.style.borderRadius = "50%"
-        randomBox.style.backgroundColor = "black"
+        randomBox.style.backgroundImage = "url(./image/hama.png)"
+        randomBox.style.webkitBackgroundSize = "cover"
         randomBox.style.position = "absolute"
 
-    let x = Math.floor(Math.random() * 700)
-    let y = Math.floor(Math.random() * 700)
+    let x = Math.floor(Math.random() * 600)
+    let y = Math.floor(Math.random() * 600)
     let xString = x.toString()
     let ySting = y.toString()
+
     randomBox.style.left = xString + "px"
     randomBox.style.top = ySting + "px"
+
+    if(timeout <= 0){
+      clearInterval(interval);
+    }
 
     randomBox.addEventListener('click', function(){
     randomBox.remove()
     // randomBox.timer()
     counter();
     })
-  },300)
+  },3000)
 });
   </script>
   </body>
