@@ -98,6 +98,8 @@
         timeout = timeout - 1;
         if(timeout <= 0){
           clearInterval(stop);
+          // 1초에서 멈춰있어서 return사용. 오류해결
+          return; 
         }
       }, 1000);
     }
