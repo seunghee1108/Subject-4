@@ -22,8 +22,9 @@
   #box{
     width: 50vw;
     height: 80vh;
-    background-color: azure;
+    background-color: #FDF5E6;
     position: relative;
+    /* border-radius: 10%; */
   }
   div{
     display: flex;
@@ -34,29 +35,37 @@
     position: relative;
     margin: 1vw;
     margin-left: 1vw;
+    /* border-radius: 11%; */
+    font-weight: bold;
+    font-size: 1.5rem;
   }
   #time{
     width: 20vw;
-    height: 5vh;
-    background-color: azure;
+    height: 5vw;
+    background-color:#FDF5E6;
+    font-size: 1.5rem;
+    align-items: center;
+    margin-left: 1vw;
+    border: none;
   }
   #score{
     width: 20vw;
-    height: 5vh;
-    background-color: azure;
+    height: 5vw;
+    background-color:#FDF5E6;
   }
   #play{
     width: 20vw;
-    height: 5vh;
-    background-color: azure;
+    height: 5vw;
+    background-color:#FDF5E6;
   }
 </style>
 <body>
   <div id = "root">
     <div id = "box"></div>
     <div>
-      <input type="text" id="time" value="10" />
-      <!-- <div id = "time">제한시간</div> -->
+      <!-- <div id ="time"></div> -->
+      <p style="justify-content: center;">제한시간</p>
+      <input type="text" id="time" value="10" >
       <div id = "score">점수</div>
       <div id = "play">play!</div>
     </div>
@@ -64,8 +73,8 @@
   <script>
     const play = document.getElementById("play");
     const score = document.getElementById("score");
-    const time = document.getElementById("time");
     const box = document.getElementById("box");
+    const time = document.getElementById("time")
     console.dir(root);
     let val = 0;
     let count = 1;
@@ -89,25 +98,18 @@
     }
 
 
-    // function timer(){
-    //   playtime = setInterval(function(){
-    //     timeout = timeout - 1;
-    //     timeout.value = timeout;
-    //     if(timeout <= 0){
-    //       clearInterval(stop);
-    //     }
-    //   }, 3000);
-    // }
+    // timer
+    function timer(){
+      let stop = setInterval(function(){
+        time.value = timeout;
+        timeout = timeout - 1;
+        if(timeout <= 0){
+          clearInterval(stop);
+        }
+      },1000);
+    }
 
-    // play.addEventListener('click', function(){
-    //   let playtime = setInterval(function(){
-    //     timeout = timeout-1;
-    //     timeout.value = timeout;
-    //     if(timeout <= 0){
-    //       clearInterval(stop);
-    //     }
-    //   }, 1000)
-    // })
+    // clickevent
     play.addEventListener('click', function(){
       timer();
       let interval = setInterval(function(){
@@ -119,26 +121,25 @@
         randomBox.style.backgroundImage = "url(./image/hama.png)"
         randomBox.style.webkitBackgroundSize = "cover"
         randomBox.style.position = "absolute"
+      // random
+      let x = Math.floor(Math.random() * 600)
+      let y = Math.floor(Math.random() * 600)
+      let xString = x.toString()
+      let ySting = y.toString()
+      randomBox.style.left = xString + "px"
+      randomBox.style.top = ySting + "px"
 
-    let x = Math.floor(Math.random() * 600)
-    let y = Math.floor(Math.random() * 600)
-    let xString = x.toString()
-    let ySting = y.toString()
-    randomBox.style.left = xString + "px"
-    randomBox.style.top = ySting + "px"
-
-    if(timeout <= 0){
-      clearInterval(interval){
+      if(timeout <= 0){
+        clearInterval(interval){
+        }
       }
-    }
-    randomBox.addEventListener('click', function(){
-    randomBox.remove()
-    // randomBox.timer()
-    counter();
-    })
+      randomBox.addEventListener('click', function(){
+      randomBox.remove()
+      // randomBox.timer()
+      counter();
+     })
   },3000)
 });
   </script>
   </body>
-  </html>
-  
+</html>
