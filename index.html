@@ -115,14 +115,15 @@
           randomBox.style.height = "5vw";
           randomBox.style.borderRadius = "50%";
           // randomBox.style.backgroundImage = `url('/image/${image[hama.png]}')`
-          randomBox.style.backgroundColor = "black";
-          // randomBox.style.backgroundImage = "url('./image/hama.png')"
+          // randomBox.style.backgroundColor = "black";
+          randomBox.style.backgroundImage = url("/image/hama.png");
           // randomBox.style.backgroundSize = "cover"
           randomBox.style.position = "absolute";
 
           // random
           let x = Math.floor(Math.random() * 10) * 80;
           let y = Math.floor(Math.random() * 10) * 80;
+          // 네모박스 외에도 나가서 좌표 설정 다시함 ! - 은정
           let xString = x.toString();
           let ySting = y.toString();
           randomBox.style.left = xString + "px";
