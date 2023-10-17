@@ -37,7 +37,7 @@ const server = http.createServer((request, response) => {
     // 변수 설정 = 이미지 파일명  
       let imageName = path.basename(request.url);
       // 폴더안에 이미지명을 변수 설정
-      let imagePath = '/image/' + imageName;
+      let imagePath = './image/' + imageName;
       // 폴더안에 있는 파일명을 읽어라
       fs.readFile(imagePath, (err, data) => {
         if (err) {
