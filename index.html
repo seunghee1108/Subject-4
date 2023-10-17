@@ -94,14 +94,12 @@
       // timer
       function timer() {
         let stop = setInterval(function () {
+          if (timeout <= 0) {
+            clearInterval(stop);
+          }
           time.value = timeout;
           console.log(timeout);
           timeout = timeout - 1;
-          if (timeout <= 0) {
-            clearInterval(stop);
-            // 1초에서 멈춰있어서 return사용. 오류해결
-            return;
-          }
         }, 1000);
       }
 
@@ -116,13 +114,13 @@
           randomBox.style.borderRadius = "50%";
           // randomBox.style.backgroundImage = `url('/image/${image[hama.png]}')`
           randomBox.style.backgroundColor = "black";
-          // randomBox.style.backgroundImage = "url('./image/hama.png')"
+          // randomBox.style.backgroundImage = "url('./image/hama.png')";
           // randomBox.style.backgroundSize = "cover"
           randomBox.style.position = "absolute";
 
           // random
-          let x = Math.floor(Math.random() * 10) * 70;
-          let y = Math.floor(Math.random() * 10) * 70;
+          let x = Math.floor(Math.random() * 10) * 60;
+          let y = Math.floor(Math.random() * 10) * 60;
           // 네모박스 외에도 나가서
           let xString = x.toString();
           let ySting = y.toString();
@@ -132,7 +130,7 @@
           if (timeout <= 0) {
             clearInterval(interval);
           }
-          randomBox.addEventListener("click", function () {
+          randomBox.addEventListener("click", () => {
             randomBox.remove();
             counter();
           });
