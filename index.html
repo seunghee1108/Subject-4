@@ -57,6 +57,19 @@
     width: 20vw;
     height: 5vw;
     background-color:#FDF5E6;
+    cursor: pointer; /* 포인터*/
+  }
+  #play:hover{ /*마우스 오버시 호버 */
+    background-color: red;
+  }
+  #reset{
+    width: 20vw;
+    height: 5vw;
+    background-color:#FDF5E6;
+    cursor: pointer;
+  }
+  #reset:hover{
+    background-color: red;
   }
 </style>
 </head>
@@ -65,9 +78,9 @@
     <div id = "box"></div>
     <div>
       <!-- <div id ="time"></div> -->
-      <p style="justify-content: center;">제한시간</p>
-      <input type="text" id="time" value="10" >
-      <div id = "score">점수</div>
+      <div id = "reset">초기화</div>
+      <div id="time">남은시간</div> <!-- div로 변경--> >
+      <div id = "score">점수</div> 
       <div id = "play">play!</div>
     </div>
   </div>
@@ -90,23 +103,28 @@
       score.innerText = "SCORE:" + val + "점";
     }
 
-    // timer
+    // timer 약간 수정
     function timer(){
-      let stop = setInterval(function(){
-        time.value = timeout;
-        console.log(timeout);
+      let stop = setInterval(callback, 1000)
+      function callback(){ 
         timeout = timeout - 1;
+        time.textContent = timeout
         if(timeout <= 0){
+          time.textContent = "시간종료"
           clearInterval(stop);
-          // 1초에서 멈춰있어서 return사용. 오류해결
-          return; 
-        }
-      }, 1000);
-    }
+       }
+      }}
+    
+      //랜덤색상 생성함수
+      function getRandomColor() {
+        return "#" + Math.floor(Math.random() * 16777215).toString(16);
+      }
 
+ 
+    
     // clickevent
     play.addEventListener('click', function(){
-      timer();
+      timer()
       let interval = setInterval(function(){
         const randomBox = document.createElement("div");
         root.children[0].appendChild(randomBox);
@@ -114,7 +132,7 @@
         randomBox.style.height = "5vw"
         randomBox.style.borderRadius = "50%"
         // randomBox.style.backgroundImage = `url('/image/${image[hama.png]}')`
-        randomBox.style.backgroundColor = "black"
+        randomBox.style.backgroundColor = `${getRandomColor()}` //대입
         // randomBox.style.backgroundImage = "url('./image/hama.png')"
         // randomBox.style.backgroundSize = "cover"
         randomBox.style.position = "absolute"
@@ -134,8 +152,14 @@
       randomBox.remove()
       counter();
      })
-  },3000)
+  },1000)
 });
+
+  //리셋버튼 클릭이벤트와 페이지 새로고침 함수
+  reset.onclick = () =>{
+    location.reload()
+  }
+
   </script>
   </body>
 </html>
