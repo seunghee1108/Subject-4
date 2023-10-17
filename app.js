@@ -9,6 +9,7 @@ const path = require('path');
 const contentType = {
   'content-Type' : 'text/html',
   'charset' : 'utf-8',
+  
 };
 // arrow함수를 사용하여 서버 생성
 const server = http.createServer((request, response) => {
