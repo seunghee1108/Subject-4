@@ -28,7 +28,7 @@ const server = http.createServer((request, response) => {
         response.end(data);
       }
     });
-
+    // 이미지 파일은 영문으로 작성해야 됨
     // startsWith : ('/hamaimage/')~로부터 시작해서
     // basename : 폴더 안에 있는 파일명
     // path : 길
