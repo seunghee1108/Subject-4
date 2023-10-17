@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <!-- <link rel="stylesheet" href="image/hama.png"> -->
 <style>
   *{
     margin: 0;
@@ -35,7 +34,6 @@
     position: relative;
     margin: 1vw;
     margin-left: 1vw;
-    /* border-radius: 11%; */
     font-weight: bold;
     font-size: 1.5rem;
   }
@@ -102,7 +100,6 @@
       console.log(val);
       score.innerText = "SCORE:" + val + "점";
     }
-
     // timer 약간 수정
     function timer(){
       let stop = setInterval(callback, 1000)
@@ -114,14 +111,12 @@
           clearInterval(stop);
        }
       }}
-    
+
       //랜덤색상 생성함수
       function getRandomColor() {
         return "#" + Math.floor(Math.random() * 16777215).toString(16);
       }
-
- 
-    
+          
     // clickevent
     play.addEventListener('click', function(){
       timer()
