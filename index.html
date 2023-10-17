@@ -23,7 +23,6 @@
     height: 80vh;
     background-color: #FDF5E6;
     position: relative;
-    /* border-radius: 10%; */
   }
   div{
     display: flex;
@@ -75,9 +74,8 @@
   <div id = "root">
     <div id = "box"></div>
     <div>
-      <!-- <div id ="time"></div> -->
       <div id = "reset">초기화</div>
-      <div id="time">남은시간</div> <!-- div로 변경--> >
+      <div id = "time">남은시간</div> <!-- div로 변경--> >
       <div id = "score">점수</div> 
       <div id = "play">play!</div>
     </div>
@@ -91,7 +89,6 @@
     const time = document.getElementById("time")
     console.dir(root);
     let val = 0;
-    // let count = 1;
     let timeout = 10;
     
     // score
@@ -116,7 +113,7 @@
       function getRandomColor() {
         return "#" + Math.floor(Math.random() * 16777215).toString(16);
       }
-          
+
     // clickevent
     play.addEventListener('click', function(){
       timer()
@@ -126,8 +123,9 @@
         randomBox.style.width = "5vw"
         randomBox.style.height = "5vw"
         randomBox.style.borderRadius = "50%"
-        // randomBox.style.backgroundImage = `url('/image/${image[hama.png]}')`
+        // 우진님이 추가하신 랜덤색상
         // randomBox.style.backgroundColor = `${getRandomColor()}` //대입
+        // 하마 이미지
         randomBox.style.backgroundImage = "url('./image/hama.png')"
         randomBox.style.backgroundSize = "cover"
         randomBox.style.position = "absolute"
