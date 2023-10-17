@@ -1,141 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <!-- <link rel="stylesheet" href="image/hama.png"> -->
-<style>
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  #root{
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #box{
-    width: 50vw;
-    height: 80vh;
-    background-color: #FDF5E6;
-    position: relative;
-    /* border-radius: 10%; */
-  }
-  div{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-    position: relative;
-    margin: 1vw;
-    margin-left: 1vw;
-    /* border-radius: 11%; */
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  #time{
-    width: 20vw;
-    height: 5vw;
-    background-color:#FDF5E6;
-    font-size: 1.5rem;
-    align-items: center;
-    margin-left: 1vw;
-    border: none;
-  }
-  #score{
-    width: 20vw;
-    height: 5vw;
-    background-color:#FDF5E6;
-  }
-  #play{
-    width: 20vw;
-    height: 5vw;
-    background-color:#FDF5E6;
-  }
-</style>
-</head>
-<body>
-  <div id = "root">
-    <div id = "box"></div>
-    <div>
-      <!-- <div id ="time"></div> -->
-      <p style="justify-content: center;">제한시간</p>
-      <input type="text" id="time" value="10" >
-      <div id = "score">점수</div>
-      <div id = "play">play!</div>
-    </div>
-  </div>
-
-  <script>
-    const root = document.getElementById("root");
-    const play = document.getElementById("play");
-    const score = document.getElementById("score");
-    const box = document.getElementById("box");
-    const time = document.getElementById("time")
-    console.dir(root);
-    let val = 0;
-    // let count = 1;
-    let timeout = 10;
-    
-    // score
-    function counter(){
-      val++;
-      console.log(val);
-      score.innerText = "SCORE:" + val + "점";
-    }
-
-    // timer
-    function timer(){
-      let stop = setInterval(function(){
-        time.value = timeout;
-        console.log(timeout);
-        timeout = timeout - 1;
-        if(timeout <= 0){
-          clearInterval(stop);
-          // 1초에서 멈춰있어서 return사용. 오류해결
-          return; 
-        }
-      }, 1000);
-    }
-
-    // clickevent
-    play.addEventListener('click', function(){
-      timer();
-      let interval = setInterval(function(){
-        const randomBox = document.createElement("div");
-        root.children[0].appendChild(randomBox);
-        randomBox.style.width = "5vw"
-        randomBox.style.height = "5vw"
-        randomBox.style.borderRadius = "50%"
-        // randomBox.style.backgroundImage = `url('/image/${image[hama.png]}')`
-        randomBox.style.backgroundColor = "black"
-        // randomBox.style.backgroundImage = "url('./image/hama.png')"
-        // randomBox.style.backgroundSize = "cover"
-        randomBox.style.position = "absolute"
-        
-      // random
-      let x = Math.floor(Math.random() * 600)
-      let y = Math.floor(Math.random() * 600)
-      let xString = x.toString()
-      let ySting = y.toString()
-      randomBox.style.left = xString + "px"
-      randomBox.style.top = ySting + "px"
-
-      if(timeout <= 0){
-        clearInterval(interval);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="image/hama.png"> -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      randomBox.addEventListener('click', function(){
-      randomBox.remove()
-      counter();
-     })
-  },3000)
-});
-  </script>
+      #root {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #box {
+        width: 50vw;
+        height: 80vh;
+        background-color: #fdf5e6;
+        position: relative;
+        /* border-radius: 10%; */
+      }
+      div {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        position: relative;
+        margin: 1vw;
+        margin-left: 1vw;
+        /* border-radius: 11%; */
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+      #time {
+        width: 20vw;
+        height: 5vw;
+        background-color: #fdf5e6;
+        font-size: 1.5rem;
+        align-items: center;
+        margin-left: 1vw;
+        border: none;
+        text-align: center;
+      }
+      #score {
+        width: 20vw;
+        height: 5vw;
+        background-color: #fdf5e6;
+      }
+      #play {
+        width: 20vw;
+        height: 5vw;
+        background-color: #fdf5e6;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div id="box"></div>
+      <div>
+        <!-- <div id ="time"></div> -->
+        <p style="text-align: center">제한시간</p>
+        <input type="text" id="time" value="10" />
+        <div id="score">점수</div>
+        <div id="play">play!</div>
+      </div>
+    </div>
+
+    <script>
+      const root = document.getElementById("root");
+      const play = document.getElementById("play");
+      const score = document.getElementById("score");
+      const box = document.getElementById("box");
+      const time = document.getElementById("time");
+      console.dir(root);
+      let val = 0;
+      // let count = 1;
+      let timeout = 10;
+
+      // score
+      function counter() {
+        val++;
+        console.log(val);
+        score.innerText = "SCORE:" + val + "점";
+      }
+
+      // timer
+      function timer() {
+        let stop = setInterval(function () {
+          time.value = timeout;
+          console.log(timeout);
+          timeout = timeout - 1;
+          if (timeout <= 0) {
+            clearInterval(stop);
+            // 1초에서 멈춰있어서 return사용. 오류해결
+            return;
+          }
+        }, 1000);
+      }
+
+      // clickevent
+      play.addEventListener("click", function () {
+        timer();
+        let interval = setInterval(function () {
+          const randomBox = document.createElement("div");
+          root.children[0].appendChild(randomBox);
+          randomBox.style.width = "5vw";
+          randomBox.style.height = "5vw";
+          randomBox.style.borderRadius = "50%";
+          // randomBox.style.backgroundImage = `url('/image/${image[hama.png]}')`
+          randomBox.style.backgroundColor = "black";
+          // randomBox.style.backgroundImage = "url('./image/hama.png')"
+          // randomBox.style.backgroundSize = "cover"
+          randomBox.style.position = "absolute";
+
+          // random
+          let x = Math.floor(Math.random() * 600);
+          let y = Math.floor(Math.random() * 600);
+          let xString = x.toString();
+          let ySting = y.toString();
+          randomBox.style.left = xString + "px";
+          randomBox.style.top = ySting + "px";
+
+          if (timeout <= 0) {
+            clearInterval(interval);
+          }
+          randomBox.addEventListener("click", function () {
+            randomBox.remove();
+            counter();
+          });
+        }, 3000);
+      });
+    </script>
   </body>
 </html>
